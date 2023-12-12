@@ -7,7 +7,6 @@ import { GlobalStyles } from '../styles/GlobalStyles';
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword  } from 'firebase/auth';
 
-// Validation Schema using Yup
 const SignupSchema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
   password: yup
@@ -46,52 +45,52 @@ export default function Signup() {
     };
 
     return (
-        <>
+        <View style={GlobalStyles.screenContainer}>
             <Formik
-            initialValues={{ email: '', password: '', confirmPassword: '' }}
-            onSubmit={handleSignup}
-            validationSchema={SignupSchema}
+                initialValues={{ email: '', password: '', confirmPassword: '' }}
+                onSubmit={handleSignup}
+                validationSchema={SignupSchema}
             >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-                <View style={GlobalStyles.screenContainer}>
-                <TextInput
-                    style={GlobalStyles.inputField}
-                    placeholder="Email"
-                    onChangeText={handleChange('email')}
-                    onBlur={handleBlur('email')}
-                    value={values.email}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                />
-                {touched.email && errors.email && <Text>{errors.email}</Text>}
+                <>
+                    <TextInput
+                        style={GlobalStyles.inputField}
+                        placeholder="Email"
+                        onChangeText={handleChange('email')}
+                        onBlur={handleBlur('email')}
+                        value={values.email}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                    />
+                    {touched.email && errors.email && <Text>{errors.email}</Text>}
 
-                <TextInput
-                    style={GlobalStyles.inputField}
-                    placeholder="Password"
-                    onChangeText={handleChange('password')}
-                    onBlur={handleBlur('password')}
-                    value={values.password}
-                    secureTextEntry
-                />
-                {touched.password && errors.password && <Text>{errors.password}</Text>}
+                    <TextInput
+                        style={GlobalStyles.inputField}
+                        placeholder="Password"
+                        onChangeText={handleChange('password')}
+                        onBlur={handleBlur('password')}
+                        value={values.password}
+                        secureTextEntry
+                    />
+                    {touched.password && errors.password && <Text>{errors.password}</Text>}
 
-                <TextInput
-                    style={GlobalStyles.inputField}
-                    placeholder="Confirm Password"
-                    onChangeText={handleChange('confirmPassword')}
-                    onBlur={handleBlur('confirmPassword')}
-                    value={values.confirmPassword}
-                    secureTextEntry
-                />
-                {touched.confirmPassword && errors.confirmPassword && <Text>{errors.confirmPassword}</Text>}
+                    <TextInput
+                        style={GlobalStyles.inputField}
+                        placeholder="Confirm Password"
+                        onChangeText={handleChange('confirmPassword')}
+                        onBlur={handleBlur('confirmPassword')}
+                        value={values.confirmPassword}
+                        secureTextEntry
+                    />
+                    {touched.confirmPassword && errors.confirmPassword && <Text>{errors.confirmPassword}</Text>}
 
-                <TouchableOpacity style={GlobalStyles.button} onPress={handleSubmit}>
-                    <Text style={GlobalStyles.buttonText}>Sign Up</Text>
-                </TouchableOpacity>
-                <Text style={GlobalStyles.linkText} onPress={handleCancelPress}>Cancel</Text>
-                </View>
+                    <TouchableOpacity style={GlobalStyles.button} onPress={handleSubmit}>
+                        <Text style={GlobalStyles.buttonText}>Sign Up</Text>
+                    </TouchableOpacity>
+                </>
             )}
             </Formik>
-        </>
+            <Text style={GlobalStyles.linkText} onPress={handleCancelPress}>Cancel</Text>
+        </View>
     );
 }
