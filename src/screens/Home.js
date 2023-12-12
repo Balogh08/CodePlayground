@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { GlobalStyles } from '../styles/GlobalStyles';
 
-export default function HomeScreen() {
+export default function Home() {
   return (
     <SafeAreaView style={GlobalStyles.screenContainer}>
       <Text>Welcome to the Home Screen!</Text>
