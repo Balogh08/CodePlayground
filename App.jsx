@@ -1,12 +1,13 @@
 import React from 'react';
-import { SafeAreaView, Text, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+// import LoginScreen from './src/screens/LoginScreen';
+// import SignupScreen from './src/screens/SignupScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.centeredView}>
-        <Text style={styles.helloWorld}>Hello World</Text>
-      </View>
+      <HomeScreen />
     </SafeAreaView>
   );
 }
@@ -14,15 +15,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 12,
-  },
-  helloWorld: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
+  }
 });
