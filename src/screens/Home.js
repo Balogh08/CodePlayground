@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GlobalStyles } from '../styles/GlobalStyles';
@@ -6,7 +6,15 @@ import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 
 export default function Home() {
+    const [userEmail, setUserEmail] = useState('');
     const navigation = useNavigation();
+
+    useEffect(() => {
+      const user = auth.currentUser;
+      if (user) {
+          setUserEmail(user.email);
+      }
+  }, []);
 
     const handleLogout = () => {
       signOut(auth).then(() => {
@@ -17,7 +25,7 @@ export default function Home() {
     };
     return (
       <SafeAreaView style={GlobalStyles.screenContainer}>
-        <Text>Welcome to the Home Screen!</Text>
+        <Text>Welcome to the Home Screen, {userEmail}!</Text>
         <TouchableOpacity style={GlobalStyles.button} onPress={handleLogout}>
           <Text style={GlobalStyles.buttonText}>Sign Out</Text>
         </TouchableOpacity>
