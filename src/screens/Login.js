@@ -3,7 +3,7 @@ import { SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-nat
 import { useNavigation } from '@react-navigation/native';
 import { GlobalStyles } from '../styles/GlobalStyles';
 
-export default function LoginScreen() {
+export default function Login() {
     const navigation = useNavigation();
 
     const handleSignUpPress = () => {
