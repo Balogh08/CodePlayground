@@ -20,8 +20,28 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb774122317877337</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FacebookAppID</key>
+	<string>774122317877337</string>
+	<key>FacebookClientToken</key>
+	<string>22abf16428aa6cbf52abe35c3aab8f13</string>
+	<key>FacebookDisplayName</key>
+	<string>CodePlayground</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -47,25 +67,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-		<key>CFBundleURLSchemes</key>
-		<array>
-			<string>fb774122317877337</string>
-		</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>774122317877337</string>
-	<key>FacebookClientToken</key>
-	<string>22abf16428aa6cbf52abe35c3aab8f13</string>
-	<key>FacebookDisplayName</key>
-	<string>CodePlayground</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-	<string>fbapi</string>
-	<string>fb-messenger-share-api</string>
-	</array>
 </dict>
 </plist>
