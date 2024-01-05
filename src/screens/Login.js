@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { GlobalStyles } from '../styles/GlobalStyles';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import FacebookLoginButton from '../components/FacebookLoginButton';
 import * as yup from 'yup';
 
 const loginSchema = yup.object().shape({
@@ -67,6 +68,7 @@ export default function Login() {
                 )}
             </Formik>
             <Text style={GlobalStyles.linkText} onPress={handleSignUpPress}>Sign Up</Text>
+            <FacebookLoginButton />
         </View>
     );
 }
