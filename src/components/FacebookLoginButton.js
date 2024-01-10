@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Button } from 'react-native';
 import { LoginButton, LoginManager, AccessToken } from 'react-native-fbsdk-next';
 import { auth } from '../../firebase';
 import { signInWithCredential, FacebookAuthProvider } from 'firebase/auth';
@@ -9,6 +10,7 @@ const FacebookLoginButton = () => {
 
   const handleFacebookLogin = async () => {
     try {
+      console.log("Start fb login");
       const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
       if (result.isCancelled) {
@@ -35,9 +37,13 @@ const FacebookLoginButton = () => {
   };
 
   return (
-    <LoginButton
-      onLoginFinished={handleFacebookLogin}
-      onLogoutFinished={() => console.log("logout.")}/>
+    <>
+    <Button
+    title="Facebook Sign-In"
+    onPress={() => handleFacebookLogin().then(() => console.log('Signed in with Facebook!'))}
+  />
+    
+      </>
   );
 };
 
