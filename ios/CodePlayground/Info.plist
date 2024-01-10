@@ -25,7 +25,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb774122317877337</string>
+				<string>$(FB_LOGIN_PROTOCOL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
