@@ -9,11 +9,6 @@ const FacebookLoginButton = () => {
 
   const handleFacebookLogin = async () => {
     try {
-      console.log("Start fb login");
-      
-
-      console.log("Facebook login was successful!");
-
       const data = await AccessToken.getCurrentAccessToken();
       if (!data) {
         console.log('Something went wrong obtaining the Facebook access token');
@@ -31,11 +26,9 @@ const FacebookLoginButton = () => {
   };
 
   return (
-    <>
     <LoginButton
       onLoginFinished={handleFacebookLogin}
       onLogoutFinished={() => console.log("logout.")}/>
-      </>
   );
 };
 
