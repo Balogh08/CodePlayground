@@ -1,0 +1,4 @@
+# Include the generated file from react-native-config
+# Assuming you have an .env file at the root of your project
+# The .env file should contain your environment variables
+include "../.env"
