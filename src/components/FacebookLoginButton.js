@@ -14,11 +14,10 @@ const FacebookLoginButton = () => {
         console.log('Something went wrong obtaining the Facebook access token');
         return;
       }
-
       const facebookCredential = FacebookAuthProvider.credential(data.accessToken);
       const userCredential = await signInWithCredential(auth, facebookCredential);
-      
       console.log('User signed in with Facebook!', userCredential.user);
+
       navigation.navigate('Home');
     } catch (error) {
       console.log('Facebook login or Firebase credential failed:', error);
