@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LoginManager } from 'react-native-fbsdk-next';
 import { SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GlobalStyles } from '../styles/GlobalStyles';
@@ -18,6 +19,7 @@ export default function Home() {
 
     const handleLogout = () => {
       signOut(auth).then(() => {
+        LoginManager.logOut();
         navigation.navigate('Login');
       }).catch((error) => {
         Alert.alert('Logout Failed', error.message);
