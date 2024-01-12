@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { LoginManager } from 'react-native-fbsdk-next';
 import { GlobalStyles } from '../styles/GlobalStyles';
 import auth from '@react-native-firebase/auth';
 
@@ -18,7 +19,10 @@ export default function Home() {
     }
 
     const handleLogout = () => {
-      auth().signOut().then().catch((error) => {
+      auth().signOut().then(() => {
+        // Log out from Facebook
+        LoginManager.logOut();
+      }).catch((error) => {
         Alert.alert('Logout Failed', error.message);
       });
     };
