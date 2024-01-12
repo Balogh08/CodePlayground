@@ -4,8 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { GlobalStyles } from '../styles/GlobalStyles';  
-import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword  } from 'firebase/auth';
+import auth from '@react-native-firebase/auth';
 
 const SignupSchema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
@@ -34,7 +33,7 @@ export default function Signup() {
             actions.setFieldError('confirmPassword', "Passwords don't match");
             return;
         }
-        createUserWithEmailAndPassword(auth, values.email, values.password)
+        auth().createUserWithEmailAndPassword(values.email, values.password)
         .then((userCredential) => {
             console.log('Signed up:', userCredential.user);
             navigation.navigate('Home');

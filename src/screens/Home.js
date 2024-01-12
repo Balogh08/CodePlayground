@@ -2,24 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GlobalStyles } from '../styles/GlobalStyles';
-import { auth } from '../../firebase';
-import { signOut } from 'firebase/auth';
+import auth from '@react-native-firebase/auth';
 
 export default function Home() {
     const [userEmail, setUserEmail] = useState('');
     const navigation = useNavigation();
 
     useEffect(() => {
-      const user = auth.currentUser;
-      if (user) {
-          setUserEmail(user.email);
-      }
-  }, []);
+      const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+      return subscriber;
+    }, []);
+
+    function onAuthStateChanged(user) {
+      setUserEmail(user ? user.email : '');
+    }
 
     const handleLogout = () => {
-      signOut(auth).then(() => {
-        navigation.navigate('Login');
-      }).catch((error) => {
+      auth().signOut().then().catch((error) => {
         Alert.alert('Logout Failed', error.message);
       });
     };

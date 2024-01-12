@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { auth } from './firebase';
+import auth from '@react-native-firebase/auth';
 import Login from './src/screens/Login';
 import Signup from './src/screens/Signup';
 import Home from './src/screens/Home';
@@ -13,7 +13,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    const unsubscribe = auth().onAuthStateChanged(user => {
       setIsAuthenticated(!!user);
     });
 

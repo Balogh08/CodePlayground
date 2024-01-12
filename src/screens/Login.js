@@ -3,8 +3,7 @@ import { Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import { GlobalStyles } from '../styles/GlobalStyles';
-import { auth } from '../../firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import auth from '@react-native-firebase/auth';
 import * as yup from 'yup';
 
 const loginSchema = yup.object().shape({
@@ -16,7 +15,7 @@ export default function Login() {
     const navigation = useNavigation();
 
     const handleLoginPress = (values) => {
-        signInWithEmailAndPassword(auth, values.email, values.password)
+        auth().signInWithEmailAndPassword(values.email, values.password)
             .then((userCredential) => {
                 console.log('Logged in:', userCredential.user);
                 navigation.navigate('Home');
