@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { GlobalStyles } from '../styles/GlobalStyles';
 import auth from '@react-native-firebase/auth';
 import * as yup from 'yup';
+import FacebookLoginButton from '../components/FacebookLoginButton';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
@@ -66,6 +67,7 @@ export default function Login() {
                 )}
             </Formik>
             <Text style={GlobalStyles.linkText} onPress={handleSignUpPress}>Sign Up</Text>
+            <FacebookLoginButton />
         </View>
     );
 }
