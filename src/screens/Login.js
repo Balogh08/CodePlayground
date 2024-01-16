@@ -67,6 +67,7 @@ export default function Login() {
                 )}
             </Formik>
             <Text style={GlobalStyles.linkText} onPress={handleSignUpPress}>Sign Up</Text>
+            <Text style={GlobalStyles.title}>Social Login</Text>
             <FacebookLoginButton />
         </View>
     );

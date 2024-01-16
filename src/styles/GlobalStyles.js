@@ -30,4 +30,14 @@ export const GlobalStyles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 15,
   },
+  title: {
+    marginTop: 30,
+    borderTopColor: 'black',
+    borderTopWidth: 2,
+    marginBottom: 15,
+    width: '100%',
+    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: 'bold',
+  }
 });
